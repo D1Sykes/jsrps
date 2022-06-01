@@ -12,20 +12,26 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound(playerSelect, computerSelect) {
-    if (playerSelect == "rock" && computerSelect == "scissors") {playerScore++;
+    if (playerSelect == "rock" && computerSelect == "scissors") {
+        playerScore++;
     return `You win! Rock beats Scissors! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "paper" && computerSelect == "rock") {playerScore++;
+  } else if (playerSelect == "paper" && computerSelect == "rock") {
+      playerScore++;
     return `You win! Paper beats Rock! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "scissors" && computerSelect == "paper") {playerScore++;
+  } else if (playerSelect == "scissors" && computerSelect == "paper") {
+      playerScore++;
     return `You win! Scissors beats Paper! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "rock" && computerSelect == "paper") {computerScore++;
+  } else if (playerSelect == "rock" && computerSelect == "paper") {
+      computerScore++;
     return `You lose! Paper beats Rock! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "paper" && computerSelect == "scissors") {computerScore++;
+  } else if (playerSelect == "paper" && computerSelect == "scissors") {
+      computerScore++;
     return `You lose! Scissors beats Paper! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "scissors" && computerSelect == "rock") {computerScore++;
+  } else if (playerSelect == "scissors" && computerSelect == "rock") {
+      computerScore++;
     return `You lose! Rock beats Scissors! The score is: ${playerScore} to ${computerScore}`
   }
-  else return `That's a draw, try again! The score is: ${playerScore} to ${computerScore}`
+  else return `That's a draw, try again! The score is: ${playerScore} to ${computerScore}`;
 }
 
 function game() {
