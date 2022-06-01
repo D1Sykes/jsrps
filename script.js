@@ -27,3 +27,7 @@ function playRound(playerSelect, computerSelect) {
   }
   else return `That's a draw, try again! The score is: ${playerScore} to ${computerScore}`
 }
+
+const playerSelect = "Rock";
+const computerSelect = computerPlay();
+console.log(playRound(playerSelect, computerSelect));
