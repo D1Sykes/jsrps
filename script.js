@@ -1,52 +1,52 @@
 function computerPlay() {
-    const number = (Math.random() * 3);
-    if (number <= 1) {
-        return "Rock";
-    } else if (number >= 2) {
-        return "Scissors";
-    }
-    else return "Paper";
+  const number = (Math.random() * 3);
+  if (number <= 1) {
+      return 'Rock';
+  } else if (number >= 2) {
+      return 'Scissors';
+  }
+  else return 'Paper';
 }
 
-let playerScore = 0;
 let computerScore = 0;
+let playerScore = 0;
 
-function playRound(playerSelect, computerSelect) {
-    if (playerSelect == "rock" && computerSelect == "scissors") {
-        playerScore++;
-    return `You win! Rock beats Scissors! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "paper" && computerSelect == "rock") {
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection == 'rock' && computerSelection == 'Scissors') {
       playerScore++;
-    return `You win! Paper beats Rock! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "scissors" && computerSelect == "paper") {
+      return `You Win! Rock beats Scissors. Score: ${playerScore} to ${computerScore}`;
+  } else if (playerSelection == 'rock' && computerSelection == 'Paper') {
+      computerScore++;
+      return `You Lose! Paper covers rock. Score: ${playerScore} to ${computerScore}`;
+  } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
+      computerScore++;
+      return `You Lose! Scissors cut paper. Score: ${playerScore} to ${computerScore}`
+  } else if (playerSelection == 'paper' && computerSelection == 'Rock') {
       playerScore++;
-    return `You win! Scissors beats Paper! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "rock" && computerSelect == "paper") {
+      return `You Win! Paper covers rock. Score: ${playerScore} to ${computerScore}`
+  } else if (playerSelection == 'scissors' && computerSelection == "Rock") {
       computerScore++;
-    return `You lose! Paper beats Rock! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "paper" && computerSelect == "scissors") {
-      computerScore++;
-    return `You lose! Scissors beats Paper! The score is: ${playerScore} to ${computerScore}`
-  } else if (playerSelect == "scissors" && computerSelect == "rock") {
-      computerScore++;
-    return `You lose! Rock beats Scissors! The score is: ${playerScore} to ${computerScore}`
+      return `You Lose! Scissors beats rock. Score: ${playerScore} to ${computerScore}`
+  } else if (playerSelection == 'scissors' && computerSelection == 'Paper') {
+      playerScore++;
+      return `You Win! Scissors beat paper. Score: ${playerScore} to ${computerScore}`
   }
-  else return `That's a draw, try again! The score is: ${playerScore} to ${computerScore}`;
+  else return `That was a draw. Try Again! Score: ${playerScore} to ${computerScore}`;
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelect = prompt("Type: Rock, Paper or Scissors")
-        playerSelect = playerSelect.toLowerCase();
-        const computerSelect = computerPlay()
-        console.log(playRound(playerSelect, computerSelect))
+  for (let i = 0; i < 5; i++) {
+      let playerSelection = prompt('Type: Rock, Paper, or Scissors')
+      playerSelection = playerSelection.toLowerCase();
+      const computerSelection = computerPlay()
+      console.log(playRound(playerSelection, computerSelection))
   }
   if (playerScore > computerScore) {
-      console.log(`You win! Final score: ${playerScore} to ${computerScore}`);
-  } else if (playerScore > computerScore) {
-    console.log(`You lose! Final score: ${playerScore} to ${computerScore}`);
+      console.log(`You're the winner! Final Score: ${playerScore} to ${computerScore}`);
+  } else if (computerScore > playerScore) {
+      console.log(`You're the loser. Final Score: ${playerScore} to ${computerScore}`);
   } else
-      console.log(`You tied! Final score: ${playerScore} to ${computerScore}`);
+      console.log(`You tied. Final Score: ${playerScore} to ${computerScore}`);
 }
 
 game();
